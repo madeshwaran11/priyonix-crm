@@ -1,0 +1,9 @@
+.git
+.github
+.vscode
+backend
+frontend/node_modules
+frontend/dist
+frontend/.vercel
+frontend/.env.local
+frontend/README.md
