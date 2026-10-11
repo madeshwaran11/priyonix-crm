@@ -390,3 +390,129 @@ body {
 *::after {
   box-sizing: border-box;
 }
+
+/* =========================================
+   PRIYONIX CRM — RESPONSIVE LAYOUT FIX
+   Preserves desktop styling
+   ========================================= */
+
+/* Prevent child elements from forcing page overflow */
+html {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.priyonix-app-shell,
+.priyonix-main,
+.priyonix-content,
+.crm-content {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Allow grid and flex children to shrink */
+.priyonix-main,
+.priyonix-content,
+.crm-content,
+.priyonix-content > *,
+.crm-content > * {
+  min-width: 0;
+}
+
+/* Keep long text and URLs inside their containers */
+.crm-content p,
+.crm-content h1,
+.crm-content h2,
+.crm-content h3,
+.crm-content td,
+.crm-content th,
+.crm-content label {
+  overflow-wrap: anywhere;
+}
+
+/* Responsive media */
+.crm-content img,
+.crm-content video,
+.crm-content canvas,
+.crm-content svg {
+  max-width: 100%;
+}
+
+/* Tables can scroll instead of stretching the whole page */
+.crm-content table {
+  max-width: 100%;
+}
+
+/* Forms should fit their available container */
+.crm-content input,
+.crm-content select,
+.crm-content textarea {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  .priyonix-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .crm-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .crm-content h1 {
+    font-size: 25px !important;
+  }
+
+  .crm-content h2 {
+    font-size: 20px !important;
+  }
+
+  .crm-content h3 {
+    font-size: 16px !important;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .priyonix-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .crm-content {
+    font-size: 13px;
+  }
+
+  .crm-content button,
+  .crm-content a {
+    max-width: 100%;
+  }
+
+  .crm-content input,
+  .crm-content select,
+  .crm-content textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .dashboard-kpi-value,
+  .kpi-value {
+    font-size: 24px !important;
+  }
+}
