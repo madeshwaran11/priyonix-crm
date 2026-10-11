@@ -3175,6 +3175,58 @@ function FollowUps() {
           .followups-page .modal-footer { flex-wrap: wrap; }
         }
 
+        /* ===== RESPONSIVE POLISH — all devices ===== */
+        @media (max-width: 800px) {
+          .followup-search,
+          .followup-filter {
+            flex: 0 0 auto;
+            width: 100%;
+            min-width: 0;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .followup-actions {
+            flex-wrap: wrap;
+          }
+
+          .followup-metric {
+            display: none;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .followup-primary,
+          .followup-secondary {
+            flex: 1 1 100%;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .followups-page-header h1 {
+            font-size: 23px;
+          }
+
+          .followup-hero-content h2 {
+            font-size: 29px;
+          }
+
+          .followups-hero {
+            min-height: 560px;
+          }
+        }
+
+        @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+          .followups-hero {
+            min-height: 360px !important;
+          }
+
+          .clock-area {
+            display: none;
+          }
+        }
+
       `}</style>
 
       <div className="followups-page">

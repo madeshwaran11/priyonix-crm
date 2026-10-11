@@ -2592,6 +2592,44 @@ function Users() {
           }
         }
 
+        /* ===== RESPONSIVE POLISH — all devices ===== */
+        @media (max-width: 600px) {
+          .users-search,
+          .users-filter {
+            flex: 0 0 auto;
+            width: 100%;
+            min-width: 0;
+          }
+
+          .users-mini-stats {
+            flex-wrap: wrap;
+            gap: 16px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .users-mini-stats {
+            flex-wrap: wrap;
+            gap: 12px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .users-hero {
+            min-height: 560px !important;
+          }
+        }
+
+        @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+          .users-hero {
+            min-height: 360px !important;
+          }
+
+          .user-space {
+            display: none;
+          }
+        }
+
       `}</style>
 
 

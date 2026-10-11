@@ -2544,6 +2544,56 @@ function Activities() {
       .activity-section-title h2 { font-size: 23px !important; }
     }
 
+    /* ===== RESPONSIVE POLISH — all devices ===== */
+    @media (max-width: 600px) {
+      .activity-search,
+      .activity-filter {
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .activity-hero-actions {
+        flex-wrap: wrap;
+      }
+
+      .activity-space-metric {
+        display: none;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .activity-hero-primary,
+      .activity-hero-secondary {
+        flex: 1 1 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .activities-page-header h1 {
+        font-size: 23px;
+      }
+
+      .activity-hero-content h2 {
+        font-size: 29px;
+      }
+
+      .activities-hero {
+        min-height: 560px;
+      }
+    }
+
+    @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+      .activities-hero {
+        min-height: 360px !important;
+      }
+
+      .communication-space {
+        display: none;
+      }
+    }
+
   `;
 
 

@@ -3499,6 +3499,36 @@ function Tasks() {
         .task-mini-stats { gap: 16px !important; flex-wrap: wrap; }
       }
 
+      /* ===== RESPONSIVE POLISH — all devices ===== */
+      @media (max-width: 700px) {
+        .task-search, .task-filter { flex: 0 0 auto; }
+      }
+
+      @media (max-width: 600px) {
+        .task-hero-actions { flex-wrap: wrap; }
+        .task-mini-stats { flex-wrap: wrap; gap: 16px !important; }
+      }
+
+      @media (max-width: 480px) {
+        .task-overview-grid { grid-template-columns: minmax(0, 1fr) !important; }
+        .task-space-metric { display: none; }
+      }
+
+      @media (max-width: 400px) {
+        .task-primary-button, .task-secondary-button { flex: 1 1 100%; justify-content: center; }
+      }
+
+      @media (max-width: 360px) {
+        .tasks-page-header h1 { font-size: 23px !important; }
+        .task-hero-content h2 { font-size: 28px !important; }
+        .tasks-hero { min-height: 540px !important; }
+      }
+
+      @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+        .tasks-hero { min-height: 360px !important; }
+        .task-space { display: none !important; }
+      }
+
       `}</style>
 
 

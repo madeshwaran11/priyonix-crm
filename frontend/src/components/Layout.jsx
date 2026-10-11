@@ -646,6 +646,7 @@ const layoutStyles = `
 
 .priyonix-app-shell {
   min-height: 100vh;
+  min-height: 100dvh;
   background: radial-gradient(circle at 85% 5%, rgba(66, 93, 255, .12), transparent 30%), #071329;
   color: var(--px-text);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
@@ -731,7 +732,7 @@ const layoutStyles = `
 .sidebar-logout:disabled { opacity: .55; cursor: not-allowed; }
 .logout-icon { font-size: 15px; }
 
-.priyonix-main { min-height: 100vh; min-width: 0; margin-left: 278px; background: #09152c; }
+.priyonix-main { min-height: 100vh; min-height: 100dvh; min-width: 0; margin-left: 278px; background: #09152c; }
 .priyonix-topbar {
   position: sticky; top: 0; z-index: 900; height: 78px; display: flex; align-items: center; justify-content: space-between;
   padding: 0 30px; background: rgba(7,19,41,.94); border-bottom: 1px solid rgba(124,157,255,.2); backdrop-filter: blur(18px);
@@ -784,7 +785,7 @@ const layoutStyles = `
 .topbar-user-text strong { color: #f4f7ff; font-size: 11px; font-weight: 700; white-space: nowrap; max-width: 100px; overflow: hidden; text-overflow: ellipsis; }
 .topbar-user-text span { color: #91a8ce; font-size: 8px; font-weight: 700; letter-spacing: .7px; }
 .topbar-chevron { color: #9eb6db; font-size: 14px; margin-left: 2px; }
-.priyonix-content { min-height: calc(100vh - 78px); padding: 28px 30px 40px; background: transparent; color: #f4f7ff; }
+.priyonix-content { min-height: calc(100vh - 78px); min-height: calc(100dvh - 78px); padding: 28px 30px 40px; background: transparent; color: #f4f7ff; }
 .layout-mobile-overlay { display: none; }
 
 @media (max-width: 1050px) {
@@ -808,8 +809,8 @@ const layoutStyles = `
   .topbar-profile { padding: 0; }
   .topbar-user-text, .topbar-chevron { display: none; }
   .topbar-icon-button { width: 37px; height: 37px; }
-  .notification-panel { right: -44px; width: min(360px, calc(100vw - 20px)); max-height: calc(100vh - 90px); }
-  .priyonix-content { min-height: calc(100vh - 68px); padding: 20px 15px 30px; }
+  .notification-panel { right: -44px; width: min(360px, calc(100vw - 20px)); max-height: calc(100vh - 90px); max-height: calc(100dvh - 90px); }
+  .priyonix-content { min-height: calc(100vh - 68px); min-height: calc(100dvh - 68px); padding: 20px 15px 30px; }
 }
 @media (max-width: 480px) {
   .priyonix-topbar { padding: 0 10px; }
@@ -818,6 +819,21 @@ const layoutStyles = `
   .notification-panel { right: -43px; }
   .topbar-avatar { width: 35px; height: 35px; }
   .priyonix-content { padding: 16px 10px 25px; }
+}
+@media (max-width: 360px) {
+  .priyonix-topbar { padding: 0 8px; }
+  .topbar-page-info span { font-size: 7px; letter-spacing: 1px; }
+  .topbar-page-info strong { font-size: 15px; }
+  .topbar-right { gap: 5px; }
+  .topbar-icon-button { width: 33px; height: 33px; }
+  .topbar-avatar { width: 33px; height: 33px; }
+  .priyonix-content { padding: 14px 8px 22px; }
+}
+/* Landscape phones: reclaim vertical space */
+@media (max-height: 480px) and (orientation: landscape) {
+  .priyonix-topbar { height: 56px; padding: 0 14px; }
+  .priyonix-content { min-height: calc(100vh - 56px); min-height: calc(100dvh - 56px); padding-top: 14px; }
+  .notification-panel { max-height: calc(100vh - 70px); max-height: calc(100dvh - 70px); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }

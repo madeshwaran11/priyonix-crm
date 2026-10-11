@@ -668,6 +668,43 @@ function ResetPassword() {
           }
         }
 
+        /* ===== RESPONSIVE POLISH — all devices ===== */
+        .reset-page {
+          min-height: 100vh;
+          min-height: 100dvh;
+        }
+
+        @media (max-width: 480px) {
+          .reset-card input {
+            font-size: 16px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .reset-page {
+            padding: 12px;
+          }
+
+          .reset-card {
+            padding: 24px 16px;
+          }
+
+          .reset-card h1 {
+            font-size: 23px;
+          }
+        }
+
+        @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+          .reset-page {
+            padding: 14px;
+            align-items: flex-start;
+          }
+
+          .reset-card {
+            padding: 22px;
+          }
+        }
+
       `}</style>
     </div>
   );

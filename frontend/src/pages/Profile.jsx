@@ -10175,6 +10175,61 @@ const profileStyles = `
     border-radius: 15px;
   }
 }
+
+/* ===== RESPONSIVE POLISH — all devices ===== */
+.profile-card-title {
+  min-width: 0;
+}
+
+.profile-card-title h3,
+.profile-card-title p,
+.profile-detail-label strong {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .profile-card-header {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .profile-detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .profile-detail-value {
+    max-width: 100%;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page-header h1 {
+    font-size: 26px;
+  }
+
+  .profile-hero-content h2 {
+    font-size: 30px;
+  }
+
+  .account-status-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+  .profile-hero {
+    min-height: 360px !important;
+  }
+
+  .profile-space {
+    display: none;
+  }
+}
 `;
 
 

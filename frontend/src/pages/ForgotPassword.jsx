@@ -632,6 +632,33 @@ const forgotStyles = `
       transition-duration: .01ms !important;
     }
   }
+
+  /* ===== RESPONSIVE POLISH — all devices ===== */
+  .forgot-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  @media (max-width: 480px) {
+    .forgot-field input {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+    .forgot-page {
+      padding: 18px 15px;
+      align-items: flex-start;
+    }
+
+    .forgot-card {
+      padding: 24px 22px 20px;
+    }
+
+    .forgot-card h1 {
+      font-size: 30px;
+    }
+  }
 `;
 
 export default ForgotPassword;

@@ -3175,6 +3175,56 @@ const [loading, setLoading] = useState(true);
           background: transparent !important;
         }
 
+        /* ===== RESPONSIVE POLISH — all devices ===== */
+        @media (max-width: 600px) {
+          .lead-search,
+          .lead-filter {
+            flex: 0 0 auto;
+            width: 100%;
+            min-width: 0;
+          }
+
+          .hero-actions {
+            flex-wrap: wrap;
+          }
+
+          .moon-metric {
+            display: none;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .hero-primary,
+          .hero-secondary {
+            flex: 1 1 100%;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .leads-page-header h1 {
+            font-size: 23px;
+          }
+
+          .hero-content h2 {
+            font-size: 29px;
+          }
+
+          .leads-hero {
+            min-height: 560px;
+          }
+        }
+
+        @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+          .leads-hero {
+            min-height: 360px !important;
+          }
+
+          .moon-area {
+            display: none;
+          }
+        }
+
       `}</style>
 
 

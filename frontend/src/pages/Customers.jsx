@@ -3196,7 +3196,7 @@ function Customers() {
 
         @media (max-width: 800px) {
           .customer-modal-overlay {
-            top: 78px !important;
+            top: 68px !important;
             left: 0 !important;
             padding: 10px 12px 16px !important;
           }
@@ -3208,7 +3208,7 @@ function Customers() {
 
         @media (max-width: 600px) {
           .customer-modal-overlay {
-            top: 78px !important;
+            top: 68px !important;
             padding: 8px !important;
           }
 
@@ -3228,6 +3228,56 @@ function Customers() {
 
           .customer-modal-footer {
             flex-wrap: wrap;
+          }
+        }
+
+        /* ===== RESPONSIVE POLISH — all devices ===== */
+        @media (max-width: 600px) {
+          .customer-search,
+          .customer-filter {
+            flex: 0 0 auto;
+            width: 100%;
+            min-width: 0;
+          }
+
+          .customer-hero-actions {
+            flex-wrap: wrap;
+          }
+
+          .customer-metric {
+            display: none;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .customer-hero-primary,
+          .customer-hero-secondary {
+            flex: 1 1 100%;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .customers-page-header h1 {
+            font-size: 23px;
+          }
+
+          .customer-hero-content h2 {
+            font-size: 29px;
+          }
+
+          .customers-hero {
+            min-height: 560px !important;
+          }
+        }
+
+        @media (max-width: 800px) and (max-height: 480px) and (orientation: landscape) {
+          .customers-hero {
+            min-height: 360px !important;
+          }
+
+          .earth-area {
+            display: none;
           }
         }
 

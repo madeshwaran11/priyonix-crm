@@ -744,6 +744,8 @@ function Dashboard() {
 
           z-index: 10;
 
+          min-width: 0;
+
           max-width: 570px;
 
         }
@@ -955,6 +957,10 @@ function Dashboard() {
           position: relative;
 
           z-index: 8;
+
+          min-width: 0;
+
+          max-width: 100%;
 
           height: 530px;
 
@@ -2076,9 +2082,9 @@ function Dashboard() {
 
           .hero {
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr);
 
-            padding: 40px;
+            padding: 44px 40px;
 
           }
 
@@ -2106,7 +2112,7 @@ function Dashboard() {
 
           .hero {
 
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
 
             padding: 40px 30px;
 
@@ -2255,6 +2261,120 @@ function Dashboard() {
           .hero-button {
 
             width: 100%;
+
+          }
+
+          .section-heading {
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+          }
+
+          .section-heading h2 {
+
+            font-size: 22px;
+
+          }
+
+          .panel-title {
+
+            font-size: 18px;
+
+          }
+
+          .pipeline-row {
+
+            grid-template-columns: 72px 1fr 30px;
+
+            gap: 8px;
+
+          }
+
+          .floating-card {
+
+            min-width: 0;
+
+            padding: 10px 12px;
+
+          }
+
+          .floating-card strong {
+
+            font-size: 18px;
+
+          }
+
+          .floating-card span {
+
+            font-size: 10px;
+
+          }
+
+        }
+
+        @media (max-width: 360px) {
+
+          .dashboard {
+
+            padding: 10px;
+
+          }
+
+          .hero {
+
+            border-radius: 18px;
+
+            padding: 28px 14px 8px;
+
+          }
+
+          .hero-title {
+
+            font-size: 32px;
+
+          }
+
+          .planet-area {
+
+            height: 300px;
+
+          }
+
+          .planet-system {
+
+            transform: scale(.5);
+
+          }
+
+          .section-heading h2 {
+
+            font-size: 20px;
+
+          }
+
+          .panel-title {
+
+            font-size: 17px;
+
+          }
+
+        }
+
+        @media (max-height: 480px) and (orientation: landscape) {
+
+          .loading-screen {
+
+            min-height: 220px;
+
+          }
+
+          .hero {
+
+            min-height: auto;
 
           }
 

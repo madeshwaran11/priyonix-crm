@@ -213,6 +213,7 @@ function Login() {
     <div className="grand-login">
 
       <style>{styles}</style>
+      <style>{responsiveStyles}</style>
 
 
 
@@ -5046,5 +5047,50 @@ body {
 `;
 
 
+
+const responsiveStyles = `
+/* ===== RESPONSIVE POLISH — all devices ===== */
+.grand-login,
+.login-main {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+@media (max-width: 520px) {
+  .input-box input {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-card {
+    padding: 26px 18px 22px;
+  }
+}
+
+@media (max-width: 360px) {
+  .login-card {
+    padding: 22px 14px 20px;
+  }
+
+  .login-card h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 950px) and (max-height: 540px) and (orientation: landscape) {
+  .login-main {
+    padding: 64px 18px 18px;
+  }
+
+  .login-card {
+    padding: 22px 26px 20px;
+  }
+
+  .launch-copy {
+    top: calc(43% + 88px);
+  }
+}
+`;
 
 export default Login;

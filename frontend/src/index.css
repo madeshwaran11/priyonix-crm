@@ -412,6 +412,7 @@ body,
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .priyonix-app-shell,
@@ -453,6 +454,16 @@ body,
 /* Tables can scroll instead of stretching the whole page */
 .crm-content table {
   max-width: 100%;
+}
+
+/* Small screens: let wide tables scroll horizontally inside their container */
+@media (max-width: 800px) {
+  .crm-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Forms should fit their available container */
@@ -514,5 +525,44 @@ body,
   .dashboard-kpi-value,
   .kpi-value {
     font-size: 24px !important;
+  }
+}
+
+/* iOS Safari zooms the page when a focused field is smaller than 16px.
+   Apply this to every field, not just those inside .crm-content. */
+@media (max-width: 480px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Very small phones (iPhone SE / 320px class) */
+@media (max-width: 360px) {
+  .priyonix-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .crm-content {
+    font-size: 12.5px;
+  }
+
+  .crm-content h1 {
+    font-size: 22px !important;
+  }
+
+  .crm-content h2 {
+    font-size: 18px !important;
+  }
+
+  .crm-content h3 {
+    font-size: 15px !important;
+  }
+
+  .dashboard-kpi-value,
+  .kpi-value {
+    font-size: 22px !important;
   }
 }
