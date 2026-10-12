@@ -27,9 +27,10 @@ public class EmailService {
      * traffic on ports 25, 465 and 587, so raw Gmail SMTP
      * cannot be used from the deployed backend.
      *
-     * When MAIL_PROVIDER=resend the email is sent through
-     * Resend's HTTPS API, which works on those hosts.
-     * Otherwise it falls back to SMTP for local development.
+     * When a Resend API key is configured (or MAIL_PROVIDER
+     * is set to "resend") the email is sent through Resend's
+     * HTTPS API, which works on those hosts. Otherwise it
+     * falls back to SMTP for local development.
      */
     private final JavaMailSender mailSender;
 
@@ -42,7 +43,7 @@ public class EmailService {
 
     public EmailService(
             JavaMailSender mailSender,
-            @Value("${app.mail.provider:smtp}")
+            @Value("${app.mail.provider:auto}")
             String provider,
             @Value("${app.mail.resend.api-key:}")
             String resendApiKey,
@@ -100,9 +101,26 @@ public class EmailService {
     }
 
     private boolean useResend() {
-        return "resend".equalsIgnoreCase(
-                provider == null ? "" : provider.trim()
-        );
+
+        String mode =
+                (provider == null || provider.isBlank())
+                        ? "auto"
+                        : provider.trim();
+
+        if ("smtp".equalsIgnoreCase(mode)) {
+            return false;
+        }
+
+        if ("resend".equalsIgnoreCase(mode)) {
+            return true;
+        }
+
+        /*
+         * "auto": prefer Resend whenever an API key is
+         * configured, otherwise fall back to SMTP.
+         */
+        return resendApiKey != null
+                && !resendApiKey.isBlank();
     }
 
     // ==========================================
