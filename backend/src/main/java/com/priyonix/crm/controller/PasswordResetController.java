@@ -6,6 +6,7 @@ import com.priyonix.crm.repository.PasswordResetTokenRepository;
 import com.priyonix.crm.repository.UserRepository;
 import com.priyonix.crm.service.EmailService;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -24,16 +25,26 @@ public class PasswordResetController {
     private final EmailService emailService;
     private final PasswordEncoder passwordEncoder;
 
+    /*
+     * Base URL of the frontend used to build the password
+     * reset link. Defaults to the local Vite dev server and
+     * is overridden on Render with FRONTEND_BASE_URL.
+     */
+    private final String frontendBaseUrl;
+
     public PasswordResetController(
             UserRepository userRepository,
             PasswordResetTokenRepository tokenRepository,
             EmailService emailService,
-            PasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder,
+            @Value("${app.frontend.base-url:http://localhost:5173}")
+            String frontendBaseUrl) {
 
         this.userRepository = userRepository;
         this.tokenRepository = tokenRepository;
         this.emailService = emailService;
         this.passwordEncoder = passwordEncoder;
+        this.frontendBaseUrl = frontendBaseUrl;
     }
 
     @PostMapping("/forgot")
@@ -99,8 +110,22 @@ public class PasswordResetController {
 
         tokenRepository.save(resetToken);
 
+        String baseUrl =
+                frontendBaseUrl == null
+                        ? ""
+                        : frontendBaseUrl.trim();
+
+        if (baseUrl.endsWith("/")) {
+
+            baseUrl = baseUrl.substring(
+                    0,
+                    baseUrl.length() - 1
+            );
+        }
+
         String resetLink =
-                "http://localhost:5173/reset-password?token="
+                baseUrl
+                + "/reset-password?token="
                 + tokenValue;
 
         emailService.sendPasswordResetEmail(

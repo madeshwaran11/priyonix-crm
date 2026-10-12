@@ -19,7 +19,7 @@ public class EmailService {
     private static final Logger log =
             LoggerFactory.getLogger(EmailService.class);
 
-    private static final String RESEND_ENDPOINT =
+    private static final String DEFAULT_RESEND_ENDPOINT =
             "https://api.resend.com/emails";
 
     /*
@@ -36,6 +36,7 @@ public class EmailService {
 
     private final String provider;
     private final String resendApiKey;
+    private final String resendEndpoint;
     private final String fromAddress;
     private final String smtpUsername;
 
@@ -47,6 +48,9 @@ public class EmailService {
             String provider,
             @Value("${app.mail.resend.api-key:}")
             String resendApiKey,
+            @Value("${app.mail.resend.endpoint:"
+                    + DEFAULT_RESEND_ENDPOINT + "}")
+            String resendEndpoint,
             @Value("${app.mail.from:}")
             String fromAddress,
             @Value("${spring.mail.username:}")
@@ -55,6 +59,10 @@ public class EmailService {
         this.mailSender = mailSender;
         this.provider = provider;
         this.resendApiKey = resendApiKey;
+        this.resendEndpoint =
+                (resendEndpoint == null || resendEndpoint.isBlank())
+                        ? DEFAULT_RESEND_ENDPOINT
+                        : resendEndpoint.trim();
         this.fromAddress = fromAddress;
         this.smtpUsername = smtpUsername;
 
@@ -154,7 +162,7 @@ public class EmailService {
                     + "}";
 
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(RESEND_ENDPOINT))
+                    .uri(URI.create(resendEndpoint))
                     .timeout(Duration.ofSeconds(15))
                     .header(
                             "Authorization",
